@@ -1,6 +1,6 @@
 # samfromnewzealand
 
-Available at [samfromnewzealand.github.io](https://samfromnewzealand.github.io) and [samfromnewzealand.com](https://samfromnewzealand.com)
+Available at ~~[samfromnewzealand.github.io](https://samfromnewzealand.github.io)~~ and [samfromnewzealand.com](https://samfromnewzealand.com)
 
 ## Tasklist
 - [x] Create basic index.html
