@@ -1,5 +1,5 @@
 baseURL = 'https://samfromnewzealand.com/'
 languageCode = 'en-us'
 title = 'samfromnewzealand'
-theme = "beautifulhugo"
 publishDir = "."
+theme = "KeepIt"
