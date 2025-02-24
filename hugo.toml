@@ -1,0 +1,5 @@
+baseURL = 'https://samfromnewzealand.com/'
+languageCode = 'en-us'
+title = 'samfromnewzealand'
+publishDir = "."
+theme = "KeepIt"
