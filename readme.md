@@ -2,6 +2,9 @@
 
 Available at ~~[samfromnewzealand.github.io](https://samfromnewzealand.github.io)~~ and [samfromnewzealand.com](https://samfromnewzealand.com)
 
+To test: `hugo server`
+To build: `hugo --minify`
+
 ## Tasklist
 - [x] Create basic index.html
 - [x] Create readme.md

@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "style.min.css",
-	"sourceRoot": "C:/Users/sgwpa/OneDrive/Documents/projects/samfromnewzealand",
+	"sourceRoot": "C:/Users/Sam/Documents/Projects/samfromnewzealand",
 	"sources": [
 		"themes/KeepIt/assets/css/style.scss",
 		"themes/KeepIt/assets/css/_variables.scss",
