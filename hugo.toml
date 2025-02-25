@@ -3,3 +3,9 @@ languageCode = 'en-us'
 title = 'samfromnewzealand'
 publishDir = "."
 theme = "KeepIt"
+languageName = "English"
+# Author config
+[author]
+  name = "Sam"
+  email = ""
+  link = ""
