@@ -37,8 +37,8 @@ layout: base.njk
 
 <nav class="post-navigation">
   <div class="prev-next">
-    {%- set previousPost = collections.post | getPreviousCollectionItem %}
-    {%- set nextPost = collections.post | getNextCollectionItem %}
+    {%- set previousPost = collections.post | getPreviousCollectionItem(page) %}
+    {%- set nextPost = collections.post | getNextCollectionItem(page) %}
 
     {% if previousPost %}<a href="{{ previousPost.url }}" class="previous-post">← {{ previousPost.data.title }}</a>{% endif %}
     {% if nextPost %}<a href="{{ nextPost.url }}" class="next-post">{{ nextPost.data.title }} →</a>{% endif %}

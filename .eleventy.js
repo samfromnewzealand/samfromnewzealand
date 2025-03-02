@@ -27,8 +27,8 @@ module.exports = function(eleventyConfig) {
     return string.split(delimiter);
   });
 
-  // Add a filter to display the current year
-  eleventyConfig.addNunjucksFilter("year", function() {
+  // Add a filter to display the current year (change from addNunjucksFilter to addFilter)
+  eleventyConfig.addFilter("year", function() {
     return new Date().getFullYear();
   });
 
@@ -59,8 +59,13 @@ module.exports = function(eleventyConfig) {
     return collectionApi.getFilteredByTag("post");
   });
 
-  // Add navigation plugins for previous/next post links
-  eleventyConfig.addPlugin(require("@11ty/eleventy-navigation"));
+  // Try to add navigation plugin only if available
+  try {
+    const eleventyNavigation = require("@11ty/eleventy-navigation");
+    eleventyConfig.addPlugin(eleventyNavigation);
+  } catch (e) {
+    console.warn("eleventy-navigation plugin not found. Navigation features will be disabled.");
+  }
 
   // Return your object options
   return {
