@@ -1,0 +1,33 @@
+---
+layout: base.njk
+title: Blog
+---
+
+<h1>Blog</h1>
+<p class="subtitle">Thoughts, stories, and updates from New Zealand</p>
+
+<div class="blog-list">
+  {% for post in collections.post | reverse %}
+    <article class="blog-item">
+      <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+      <div class="meta">
+        <time datetime="{{ post.date | w3DateFilter }}">{{ post.date | dateDisplay }}</time>
+        {% if post.data.tags %}
+          <span class="tags">
+            {% for tag in post.data.tags %}
+              {% if tag != "post" %}
+                <span class="tag">{{ tag }}</span>
+              {% endif %}
+            {% endfor %}
+          </span>
+        {% endif %}
+      </div>
+      {% if post.data.excerpt %}
+        <p>{{ post.data.excerpt }}</p>
+      {% else %}
+        <p>{{ post.templateContent | striptags | truncate(150) }}</p>
+      {% endif %}
+      <a href="{{ post.url }}" class="read-more">Read more →</a>
+    </article>
+  {% endfor %}
+</div>

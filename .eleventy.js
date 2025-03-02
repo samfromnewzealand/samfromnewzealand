@@ -27,10 +27,40 @@ module.exports = function(eleventyConfig) {
     return string.split(delimiter);
   });
 
+  // Add a filter to display the current year
+  eleventyConfig.addNunjucksFilter("year", function() {
+    return new Date().getFullYear();
+  });
+
+  // Add w3DateFilter for blog post dates
+  eleventyConfig.addFilter("w3DateFilter", function(date) {
+    return date.toISOString();
+  });
+
+  // Copy static assets
+  eleventyConfig.addPassthroughCopy("src/styles");
+  eleventyConfig.addPassthroughCopy("src/images");
+
+  // Add collection navigation helpers for previous/next post links
+  eleventyConfig.addFilter("getPreviousCollectionItem", (collection, page) => {
+    const currentIndex = collection.findIndex(item => item.url === page.url);
+    if (currentIndex === 0) return null;
+    return collection[currentIndex - 1];
+  });
+
+  eleventyConfig.addFilter("getNextCollectionItem", (collection, page) => {
+    const currentIndex = collection.findIndex(item => item.url === page.url);
+    if (currentIndex === collection.length - 1) return null;
+    return collection[currentIndex + 1];
+  });
+
   // Create a collection for blog posts
   eleventyConfig.addCollection("post", function(collectionApi) {
     return collectionApi.getFilteredByTag("post");
   });
+
+  // Add navigation plugins for previous/next post links
+  eleventyConfig.addPlugin(require("@11ty/eleventy-navigation"));
 
   // Return your object options
   return {

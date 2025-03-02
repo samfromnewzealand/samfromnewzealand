@@ -1,0 +1,13 @@
+/* Main styles for the site */
+body {
+  font-family: system-ui, sans-serif;
+}
+
+/* Base layout styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Additional global styles can be added here */

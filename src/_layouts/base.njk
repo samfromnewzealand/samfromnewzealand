@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title }} | Sam from New Zealand</title>
-  <meta name="description" content="{{ description or 'Sam from New Zealand - Personal website and blog' }}">
+  <title>{% if title %}{{ title }} | {% endif %}Sam From New Zealand</title>
+  <!-- Consolidate CSS references -->
   <link rel="stylesheet" href="/css/styles.css">
   {% if customCSS %}
   <link rel="stylesheet" href="{{ customCSS }}">
@@ -51,7 +51,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; {{ "" | dateDisplay | split(" ")[2] }} Sam from New Zealand. All rights reserved.</p>
+        <p>&copy; {% year %} Sam From New Zealand</p>
       </div>
     </div>
   </footer>
