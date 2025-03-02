@@ -1,0 +1,53 @@
+---
+layout: base
+---
+<article class="blog-post">
+    <header class="post-header">
+        <h1>{{ title }}</h1>
+        <div class="post-meta">
+            <time datetime="{{ page.date.toISOString() }}">{{ page.date | dateDisplay }}</time>
+            
+            {% if tags %}
+            <div class="post-tags">
+                {% for tag in tags %}
+                    {% if tag != "post" %}
+                    <span class="tag">{{ tag }}</span>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+    </header>
+    
+    <div class="post-content">
+        {{ content | safe }}
+    </div>
+    
+    <footer class="post-footer">
+        <div class="author-bio">
+            <h3>About Sam</h3>
+            <p>Sam writes about life, travel, and culture in New Zealand. When not writing, you'll find him hiking in the mountains or enjoying a flat white at a local café.</p>
+        </div>
+        
+        <div class="post-navigation">
+            <div class="prev-next">
+                {%- set previousPost = collections.post | getPreviousCollectionItem %}
+                {%- set nextPost = collections.post | getNextCollectionItem %}
+                
+                {% if previousPost %}
+                <a href="{{ previousPost.url }}" class="prev-post">
+                    <span>Previous</span>
+                    <p>{{ previousPost.data.title }}</p>
+                </a>
+                {% endif %}
+                
+                {% if nextPost %}
+                <a href="{{ nextPost.url }}" class="next-post">
+                    <span>Next</span>
+                    <p>{{ nextPost.data.title }}</p>
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </footer>
+</article>

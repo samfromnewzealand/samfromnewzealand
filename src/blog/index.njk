@@ -1,0 +1,30 @@
+---
+layout: base
+title: Blog
+description: Articles and stories from Sam in New Zealand
+---
+<header class="page-header">
+    <h1>Blog</h1>
+    <p>Thoughts, stories and ideas from Aotearoa New Zealand</p>
+</header>
+
+<section class="blog-list">
+    {% set posts = collections.post | reverse %}
+    
+    {% for post in posts %}
+    <article class="blog-entry">
+        <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+        <time datetime="{{ post.date.toISOString() }}">{{ post.date | dateDisplay }}</time>
+        
+        {% if post.data.description %}
+        <p>{{ post.data.description }}</p>
+        {% endif %}
+        
+        <a href="{{ post.url }}" class="read-more">Read more →</a>
+    </article>
+    {% endfor %}
+    
+    {% if posts.length === 0 %}
+    <p>No posts published yet. Check back soon!</p>
+    {% endif %}
+</section>

@@ -1,0 +1,44 @@
+---
+layout: base
+title: Home
+---
+<section class="hero">
+  <h1>Kia ora! I'm Sam from New Zealand</h1>
+  <p class="lead">Welcome to my personal website where I share thoughts, experiences, and stories from Aotearoa New Zealand.</p>
+</section>
+
+<section class="subscription">
+  <h2>Stay Updated</h2>
+  <p>Subscribe to receive the latest updates straight to your inbox.</p>
+  
+  <form id="subscription-form" class="email-form">
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required placeholder="your@email.com">
+    </div>
+    <button type="submit" class="button">Subscribe</button>
+  </form>
+  <p class="small">I respect your privacy and won't spam your inbox.</p>
+</section>
+
+<section class="recent-posts">
+  <h2>Recent Posts</h2>
+  
+  {% set posts = collections.post | reverse %}
+  {% set recentPosts = posts.slice(0, 3) %}
+  
+  <div class="post-grid">
+    {% for post in recentPosts %}
+    <article class="post-card">
+      <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+      <time datetime="{{ post.date.toISOString() }}">{{ post.date | dateDisplay }}</time>
+      {% if post.data.description %}
+        <p>{{ post.data.description }}</p>
+      {% endif %}
+      <a href="{{ post.url }}" class="read-more">Read More →</a>
+    </article>
+    {% endfor %}
+  </div>
+  
+  <p class="view-all"><a href="/blog/">View all posts</a></p>
+</section>

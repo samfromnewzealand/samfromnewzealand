@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }} | Sam from New Zealand</title>
+  <meta name="description" content="{{ description or 'Sam from New Zealand - Personal website and blog' }}">
+  <link rel="stylesheet" href="/css/styles.css">
+  {% if customCSS %}
+  <link rel="stylesheet" href="{{ customCSS }}">
+  {% endif %}
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">Sam from NZ</a>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    {{ content | safe }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Sam from New Zealand</h3>
+          <p>Sharing stories from Aotearoa.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Connect</h3>
+          <ul class="social-links">
+            <li><a href="#" target="_blank">Twitter</a></li>
+            <li><a href="#" target="_blank">Instagram</a></li>
+            <li><a href="#" target="_blank">LinkedIn</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Subscribe</h3>
+          <p>Get notified about new content</p>
+          <a href="#subscription-form" class="button">Subscribe Now</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; {{ "" | dateDisplay | split(" ")[2] }} Sam from New Zealand. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
