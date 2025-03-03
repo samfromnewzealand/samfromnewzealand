@@ -1,9 +1,12 @@
 module.exports = function(eleventyConfig) {
-  // Copy the `css` directory to the output
+  // Copy the `css` directory to the output - consolidate CSS directories
   eleventyConfig.addPassthroughCopy("src/css");
   
-  // Copy the `img` directory to the output
+  // Copy the `img` directory to the output (including favicon subdirectory)
   eleventyConfig.addPassthroughCopy("src/img");
+  
+  // Copy favicon files at the site root for maximum compatibility
+  eleventyConfig.addPassthroughCopy({"src/img/favicon/favicon.ico": "favicon.ico"});
   
   // Copy the `js` directory to the output
   eleventyConfig.addPassthroughCopy("src/js");
@@ -37,8 +40,8 @@ module.exports = function(eleventyConfig) {
     return date.toISOString();
   });
 
-  // Copy static assets
-  eleventyConfig.addPassthroughCopy("src/styles");
+  // Remove duplicate CSS references
+  // eleventyConfig.addPassthroughCopy("src/styles");
   eleventyConfig.addPassthroughCopy("src/images");
 
   // Add collection navigation helpers for previous/next post links
@@ -72,9 +75,9 @@ module.exports = function(eleventyConfig) {
     dir: {
       input: "src",
       output: "_site",
-      includes: "_includes",
-      layouts: "_layouts",
-      data: "_data"
+      includes: "includes",
+      // Remove layouts or set to "includes/layouts"
+      data: "data"  // Update if needed
     },
     templateFormats: ["md", "njk", "html"],
     markdownTemplateEngine: "njk",

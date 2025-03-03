@@ -1,0 +1,115 @@
+---
+layout: base
+---
+
+<article class="blog-post">
+  <header class="post-header">
+    <h1>{{ title }}</h1>
+    {% if date %}
+      <time datetime="{{ date | w3DateFilter }}">{{ date | dateDisplay }}</time>
+    {% endif %}
+    
+    {% if tags %}
+      <div class="post-tags">
+        {% for tag in tags %}
+          {% if tag != "post" %}
+            <span class="tag">{{ tag }}</span>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </header>
+
+  <div class="post-content">
+    {{ content | safe }}
+  </div>
+
+  <footer class="post-footer">
+    <!-- Post navigation -->
+    <nav class="post-navigation">
+      {% set previousPost = collections.post | getPreviousCollectionItem(page) %}
+      {% set nextPost = collections.post | getNextCollectionItem(page) %}
+
+      <div class="post-nav-links">
+        {% if previousPost %}
+          <div class="post-nav-prev">
+            <a href="{{ previousPost.url }}" rel="prev">
+              <span class="post-nav-label">← Previous</span>
+              <span class="post-nav-title">{{ previousPost.data.title }}</span>
+            </a>
+          </div>
+        {% endif %}
+        
+        {% if nextPost %}
+          <div class="post-nav-next">
+            <a href="{{ nextPost.url }}" rel="next">
+              <span class="post-nav-label">Next →</span>
+              <span class="post-nav-title">{{ nextPost.data.title }}</span>
+            </a>
+          </div>
+        {% endif %}
+      </div>
+    </nav>
+  </footer>
+</article>
+
+<!-- Add some additional CSS for blog posts -->
+<style>
+  .blog-post {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .post-header {
+    margin-bottom: 2rem;
+  }
+  
+  .post-header time {
+    color: var(--gray-color);
+    font-size: 0.9rem;
+    display: block;
+    margin-top: 0.5rem;
+  }
+  
+  .post-tags {
+    margin-top: 1rem;
+  }
+  
+  .tag {
+    display: inline-block;
+    background-color: #f1f1f1;
+    padding: 0.25rem 0.5rem;
+    margin-right: 0.5rem;
+    border-radius: 3px;
+    font-size: 0.8rem;
+  }
+  
+  .post-content {
+    line-height: 1.8;
+    margin-bottom: 3rem;
+  }
+  
+  .post-navigation {
+    border-top: 1px solid #eee;
+    padding-top: 1.5rem;
+  }
+  
+  .post-nav-links {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .post-nav-prev, .post-nav-next {
+    max-width: 48%;
+  }
+  
+  .post-nav-label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--gray-color);
+  }
+  
+  .post-nav-title {
+    font-weight: 500;
+  }
+</style>
