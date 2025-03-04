@@ -2,11 +2,9 @@
 
 Available at ~~[samfromnewzealand.github.io](https://samfromnewzealand.github.io)~~ and [samfromnewzealand.com](https://samfromnewzealand.com)
 
-
-
 ## Tasklist
 - [x] Create basic 11ty setup
-- [ ] remove extra pages
+- [x] remove extra pages
 - [ ] update posts
 - [ ] add newsletter sign up
 - [ ] contact options to include email and presented as icons
