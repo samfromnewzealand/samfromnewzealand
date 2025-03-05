@@ -1,0 +1,4 @@
+// This is a placeholder for the image file.
+// You should resize your samhead.png to 128x128 pixels and save it as samhead-small.png
+// You can resize it using an image editor like Photoshop, GIMP, or even online tools
+// Command line example: convert samhead.png -resize 128x128 samhead-small.png

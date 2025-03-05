@@ -345,6 +345,51 @@ p {
   font-size: 0.9rem;
 }
 
+/* Footer styles */
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--light-color);
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  background-color: var(--primary-color);
+}
+
+.social-icons a:hover svg {
+  stroke: white;
+}
+
+.social-icons .icon {
+  width: 22px;
+  height: 22px;
+  stroke: var(--gray-color);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   h1 {

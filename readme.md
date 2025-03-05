@@ -2,6 +2,10 @@
 
 Available at ~~[samfromnewzealand.github.io](https://samfromnewzealand.github.io)~~ and [samfromnewzealand.com](https://samfromnewzealand.com)
 
+npm start
+
+npm run build
+
 ## Tasklist
 - [x] Create basic 11ty setup
 - [x] remove extra pages
